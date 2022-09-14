@@ -17,8 +17,12 @@ namespace Roleplay_PII_Grupal
             this.VidaInicial= this.Vida;
         }
 
-        public static void Atacar(Item item, Magos personaje){
-            personaje.Vida -= item.ValorAtaque;
+        public void Atacar(Magos perAtacado){
+            double Damage = 0;
+            foreach (Item element in this.Inventario){
+                Damage += element.ValorAtaque;
+            }
+            perAtacado.Vida -= Damage;
         }
 
         public static void Curar(Magos personaje){

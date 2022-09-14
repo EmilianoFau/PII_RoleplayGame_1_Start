@@ -8,8 +8,9 @@ namespace Roleplay_PII_Grupal
         {
             Item palito = new Item("Palito", "Hola", 100, 50, 0);
             Magos mago1 = new Magos("Oswald", 100, palito);
-            mago1.Atacar
-            Console.WriteLine(mago1.Inventario);
+            Magos mago2 = new Magos("Emi", 100, palito);
+            mago1.Atacar(mago2);
+            Console.WriteLine(mago2.Vida);
         }
     }
 }
