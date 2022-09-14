@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Roleplay_PII_Grupal
 {
@@ -7,7 +7,7 @@ namespace Roleplay_PII_Grupal
     {
         public string Nombre { get; set;}
         public double VidaInicial { get; }
-        public ArrayList Inventario = new ArrayList();
+        public List<Item> Inventario = new List<Item>();
         public double Vida { get; set;}
 
         public Magos(string nombre, double vida, Item inventario) {
