@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Roleplay_PII_Grupal
 {
-    public class Magos
+    public class Magos : IPersonaje
     {
         public string Nombre { get; set;}
         public double VidaInicial { get; }
@@ -13,11 +13,15 @@ namespace Roleplay_PII_Grupal
         public Magos(string nombre, double vida, Item inventario) {
             this.Nombre = nombre;
             this.Vida = vida;
-            this.Inventario.Add(inventario);
             this.VidaInicial= this.Vida;
+            AgregarItem(inventario);
         }
 
-        public void Atacar(Magos perAtacado)
+        public void AgregarItem(Item item) {
+            this.Inventario.Add(item);
+        }
+
+        public void Atacar(IPersonaje perAtacado)
         {
             double Damage = 0;
             foreach (Item element in this.Inventario)
@@ -34,7 +38,7 @@ namespace Roleplay_PII_Grupal
             }
         }
 
-        public static void Curar(Magos personaje){
+        public static void Curar(IPersonaje personaje){
             personaje.Vida = personaje.VidaInicial;
         }
     }
